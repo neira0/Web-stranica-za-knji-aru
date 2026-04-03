@@ -1,0 +1,191 @@
+/* --- OPŠTI STIL --- */
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: #FCFBF9;
+    color: #432818;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- NAVBAR --- */ 
+.custom-navbar {
+    background-color: #432818 !important;
+    padding: 15px 40px;
+}
+
+.custom-navbar img {
+    height: 50px;  /*visina*/
+}
+
+/* --- BANER --- */
+.banner1 {
+    text-align: center; /*centriranje texta*/
+    padding: 60px 20px;
+    background-color: #F3E8D8;
+}
+
+.banner1 h3 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+     font-family: 'Lobster', cursive; /*font*/
+}
+
+.banner1 p {
+    font-size: 1.2em;
+}
+
+/* --- NASLOV SEKCIJE --- */
+.banner2 .naslov {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;  /*razmak izmedju*/
+    margin: 40px 0;
+}
+
+.banner2 .naslov h3 {
+    font-size: 25px;
+    letter-spacing: 3px;
+    color: #432818;
+}
+
+.banner2 .naslov hr {
+    flex: 1;
+    max-width: 150px;
+    height: 2px;
+    border: none;
+    background-color: #99582A;
+}
+
+/* --- KARTICE --- */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+/*jedna kartica*/
+.cards .card {
+    width: 220px;
+    background-color: #F3E8D8;
+    border: none;
+    border-radius: 15px; /*bez okvira sa zaobljenim uglovima*/
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08); /*sjena*/
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    text-align: center;
+}
+
+.cards .card:hover {
+    transform: translateY(-5px);  /*pri prelasku misa pomjera se po y*/
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.cards .card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+.card-body h5 {
+    font-size: 1.1em;
+    margin: 10px 0 5px 0;
+}
+
+.card-body p {
+    font-size: 0.95em;
+    margin-bottom: 10px;
+}
+
+/* --- DUGME --- */
+.btn {
+    background-color: #432818;
+    color: #FCFBF9;
+    border-radius: 25px;
+    padding: 6px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #99582A;
+    color: #FCFBF9;
+    transform: translateY(-2px);
+}
+
+/* --- RESPONSIVNO --- */
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/*footer*/
+.footer {
+    width: 100%;
+    min-height: 250px; /* Malo veća visina za bolji izgled */
+    background-color: #432818;
+    display: flex;
+    justify-content: space-around; /* Ravnomjeran razmak između kolona */
+    align-items: flex-start; /* Poravnanje na vrh */
+    padding: 40px 0;
+    color: white; /* Da se tekst vidi na tamnoj pozadini */
+    font-family: sans-serif;
+}
+
+/* Naslovi u footeru */
+.footer h4 {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.pronadjite_nas, .info{
+    margin-top: 60px;
+}
+.footer .logoo, .footer .info, .footer .pronadjite_nas, .footer .lokacija {
+    width: 22%; /* Smanjeno da stane 4 kolone */
+}
+
+/* Stilovi za liste */
+.footer ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.footer ul li {
+    display: flex;
+    align-items: center; /* Centriranje ikone i teksta vertikalno */
+    margin-bottom: 15px;
+}
+
+.footer ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+/* Stilovi za ikone */
+.footer img {
+    width: 24px; /* Veličina ikona */
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Posebno za logo */
+.footer .logoo img {
+    width: 70%;
+    margin-top: 20px;
+}
+

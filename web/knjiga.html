@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- naslov stranice koji se prikazuje u tabu browser-a -->
+  <title>Detalji knjige</title>
+  <!-- link ka css fajlu knjiga.css koji stilizuje ovu stranicu -->
+  <link rel="stylesheet" href="knjiga.css">
+  <!-- google font playfair display za naslove -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="custom-navbar">
+  <!-- container za punu sirinu stranice -->
+  <div class="container-fluid">
+    <!-- logo stranice koji vodi na pocetnu stranicu -->
+    <a class="navbar-brand" href="index.html">
+      <!-- slika loga, visina 50px -->
+      <img src="slike/logo.png" style="height:50px;">
+    </a>
+  </div>
+</nav>
+
+<!-- DETALJI KNJIGE -->
+<div class="knjiga-detalji">
+
+  <!-- SLIKA KNJIGE -->
+  <div class="book-image">
+    <!-- slika knjige, id se koristi u javascript-u da se ubaci odgovarajuca naslovnica -->
+    <img id="bookImage" alt="Naslovnica knjige">
+  </div>
+
+  <!-- INFORMACIJE O KNJIZI -->
+  <div class="book-info">
+    <!-- naslov knjige, popunjava javascript -->
+    <h2 id="bookTitle"></h2>
+    <!-- autor knjige, popunjava javascript -->
+    <h4 id="bookAuthor"></h4>
+
+    <!-- zanr knjige, javascript ubacuje vrijednost -->
+    <p><strong>Žanr:</strong> <span id="bookGenre"></span></p>
+    <!-- cijena knjige -->
+    <p><strong>Cijena:</strong> <span id="bookPrice"></span></p>
+
+    <!-- opis knjige -->
+    <p id="bookDescription"></p>
+
+    <!-- za koga je knjiga namijenjena -->
+    <h5>Za koga je ova knjiga?</h5>
+    <p id="bookAudience"></p>
+
+    <!-- razlog preporuke knjige -->
+    <h5>Zašto je preporučujemo?</h5>
+    <p id="bookWhy"></p>
+
+    <!-- ocjena knjige -->
+    <p><strong>Ocjena:</strong> <span id="bookRating"></span></p>
+
+    <!-- DUGMAD -->
+    <div class="buttons">
+      <!-- dugme za dodavanje knjige u korpu -->
+      <!-- onclick poziva funkciju addToCart() iz javascript-a -->
+      <button class="btn" onclick="addToCart()">Dodaj u korpu</button>
+
+      <!-- dugme za povratak na pocetnu stranicu -->
+      <a href="index.html" class="btn">Nazad</a>
+    </div>
+  </div>
+</div>
+
+<!-- javascript fajl koji popunjava sve podatke o knjizi -->
+<script src="knjige.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+/* --- BODY --- */
+body {
+    font-family: 'Playfair Display', serif; /* osnovni font stranice -  serif */
+    background-color: #FCFBF9; /* svijetla pozadina cijele stranice */
+    color: #432818; /* osnovna boja teksta */
+    margin: 0; /* uklanja default marginu browsera */
+    padding: 0; /* uklanja default padding browsera */
+}
+
+/* --- NAVBAR --- */
+.custom-navbar {
+    background-color: #432818 !important; /* tamno smeđa pozadina navigacije */
+    padding: 15px 40px; /* unutrašnji razmak navbar-a */
+}
+
+.custom-navbar img {
+    height: 50px; /* visina logo slike */
+}
+
+/* --- DETALJI KNJIGE --- */
+.knjiga-detalji {
+    max-width: 1000px; /* maksimalna širina sadržaja detalja knjige */
+    margin: 50px auto; /* centriranje i razmak od vrha */
+    display: flex; /* koristi flexbox za raspored slike i teksta */
+    flex-wrap: wrap; /* dozvoljava da se elementi prelamaju na manje ekrane */
+    gap: 40px; /* razmak između slike i teksta */
+    background-color: #FCFBF9; /* pozadina box-a */
+    padding: 40px; /* unutrašnji razmak box-a */
+    border-radius: 25px; /* zaobljeni uglovi */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15); /* lagana sjena radi dubine */
+}
+
+.book-image {
+    flex: 1 1 300px; /* fleksibilna širina slike, minimalno 300px */
+    text-align: center; /* centriranje slike horizontalno */
+}
+
+.book-image img {
+    width: 100%; /* slika zauzima širinu container-a */
+    max-width: 300px; /* maksimalna širina slike */
+    border-radius: 15px; /* blago zaobljeni uglovi slike */
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2); /* sjena slike */
+}
+
+.book-info {
+    flex: 2 1 500px; /* fleksibilna širina teksta, minimalno 500px */
+}
+
+.book-info h2 {
+    margin-top: 0; /* uklanja razmak iznad naslova */
+    font-size: 2em; /* veća veličina fonta za naslov knjige */
+}
+
+.book-info h4 {
+    color: #6F1D1B; /* tamnija boja za ime autora */
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.book-info p {
+    line-height: 1.8; /* razmak između linija teksta radi lakšeg čitanja */
+    margin-bottom: 10px; /* razmak ispod svakog paragrafa */
+}
+
+.book-info h5 {
+    margin-top: 20px; /* razmak iznad podnaslova */
+    margin-bottom: 5px; /* razmak ispod podnaslova */
+    font-size: 1.1em; /* malo veći font od običnog paragrafa */
+}
+
+/* --- DUGMAD --- */
+.buttons {
+    margin-top: 25px; /* razmak iznad dugmadi */
+}
+
+.buttons .btn {
+    background-color: #432818; /* boja dugmeta */
+    color: #FCFBF9; /* boja teksta dugmeta */
+    border-radius: 25px; /* zaobljeni uglovi */
+    padding: 8px 22px; /* unutrašnji razmak dugmeta */
+    font-size: 15px; /* veličina fonta */
+    font-weight: 500; /* debljina fonta */
+    text-decoration: none; /* uklanja underline */
+    display: inline-block; /* omogućava marginu i padding */
+    margin-right: 15px; /* razmak između dugmadi */
+    transition: all 0.3s ease; /* glatka animacija hover efekta */
+    border: none; /* uklanja default border */
+    cursor: pointer; /* mijenja kursor na pointer */
+}
+
+.buttons .btn:hover {
+    background-color: #99582A; /* tamnija boja na hover */
+    color: #FCFBF9; /* tekst ostaje svijetao */
+    transform: translateY(-2px); /* lagano pomicanje dugmeta gore */
+}
+
+/* --- RESPONSIVNO --- */
+@media (max-width: 768px) {
+    .knjiga-detalji {
+        flex-direction: column; /* elementi se slažu jedan ispod drugog */
+        padding: 20px; /* smanjen padding na manjim ekranima */
+    }
+
+    .book-image {
+        margin-bottom: 20px; /* razmak ispod slike kad je vertikalno */
+    }
+}

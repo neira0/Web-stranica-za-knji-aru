@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--ukljucujem bootstrap, style.css kao i linkove za fontove koji ce se koristiti-->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+  <!--nav bar preuzet sa bootstrapa-->
+   <nav class="navbar navbar-expand-lg custom-navbar">
+     <div class="container-fluid">
+      <!-- Logo -->
+      <a class="navbar-brand" href="index.html">
+        <img src="slike/logo.png" alt="Logo" style="height:50px;">
+      </a>
+
+      <!-- Toggle za mobilni -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" 
+        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+    <!-- Linkovi koji će se prikazati na nav baru -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Početna</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="korpa.html">Korpa</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Kategorije
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="drama.html">Drama</a></li>
+            
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Pretraga -->
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!--prvi dio ispod navbara jeste slika sa naslovom i textom-->
+<div class="banner1">   
+    <h3>Dobrodošli u našu knjižaru</h3>
+    <p>Nudimo veliki izbor knjiga iz različitih oblasti. Posjetite nas i otkrijte 
+        vašu novu omiljenu knjigu!</p> 
+</div>
+
+<!--banner2 sadrži kartice najnovijih knjiga, podijeljen a 2 diva, jedan je naslov a 
+drugi kartice-->
+<div class="banner2">
+  <div class="naslov">
+    <hr>
+    <h3>Najnovije knjige</h3><hr>
+  </div>
+<!--kartice preuzete sa bootstrapa, sadrže 4 najnovije knjige, sliku, naslov, cijenu i 
+button koji vodi do detalja o knjizi -->
+  <div class="cards">
+  <div class="card">
+  <img src="slike/knjiga1.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">THE SECRET OF SECRETS</h5>
+    <p class="card-text">15KM</p>
+    <a href="knjiga.html?id=1" class="btn">Kupi</a>
+  </div>
+</div>
+<div class="card">
+  <img src="slike/knjiga2.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">THE LAND OF SWEET FOREVER</h5>
+    <p class="card-text">20KM</p>
+    <a href="knjiga.html?id=2" class="btn">Kupi</a>
+  </div>
+</div>
+<div class="card">
+  <img src="slike/knjiga3.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">WRECK</h5>
+    <p class="card-text">20KM</p>
+    <a href="knjiga.html?id=3" class="btn">Kupi</a>
+  </div>
+</div>
+<div class="card">
+  <img src="slike/knjiga4.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">MONA'S EYES</h5>
+    <p class="card-text">25KM</p>
+    <a href="knjiga.html?id=4" class="btn">Kupi</a>
+  </div>
+</div>
+</div>
+</div>
+
+<!--banner3 predstavlja citat koji sluzi kao motivacija i ukras-->
+<div class="banner3"> 
+  <p>"A room without books is like a body without a soul."</p>
+</div>
+
+<!--banner4, slaicno kao banner2, sadrzi div sa naslovom i div sa karticama
+s tim da ovdje imamo vise kartica koje se mogu listati-->
+<div class="banner4">
+  <div class="naslov">
+    <hr>
+    <h3>Najpopularnije knjige</h3>
+    <hr>
+  </div>
+
+  <div class="slider-wrapper">
+    <button class="arrow left">&#10094;</button>  <!--lijeva strelica za listanje-->
+
+    <div class="book-slider" id="bookSlider">
+      <!--kartice su preuzete sa bootstrapa, sadrze sliku, naslov, cijenu i button-->
+      <div class="card">
+        <img src="slike/popularno1.png" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">I AM REBEL</h5>
+          <p class="card-text">15 KM</p>
+          <a href="knjiga.html?id=5" class="btn">Kupi</a> 
+          <!--Dio ?id=8 u linku znači da se stranici knjiga.html šalje parametar 
+          id sa vrijednošću 5, koji se može koristiti da se prikaže tačno ta knjiga. id-ovi su definisani u knjige.js
+          na ovaj nacin imamo jednu univerzalnu knjige.html na kojoj se podaci prikazuju u zavisnosti od izabrane knjige od
+          strane korisnika-->
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="slike/popularno2.png" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">THE WIDOW</h5>
+          <p class="card-text">20 KM</p>
+          <a href="knjiga.html?id=6" class="btn">Kupi</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="slike/knjiga3.png" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">WRECK</h5>
+          <p class="card-text">20 KM</p>
+          <a href="knjiga.html?id=3" class="btn">Kupi</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="slike/POPULARNO3.png" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">THE CORRESPODENT</h5>
+          <p class="card-text">25 KM</p>
+          <a href="knjiga.html?id=7" class="btn">Kupi</a>
+        </div>
+      </div>
+
+      
+      <div class="card">
+        <img src="slike/POPULARNO4.png" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">THE HOUSEMAID</h5>
+          <p class="card-text">25 KM</p>
+          <a href="knjiga.html?id=9" class="btn">Kupi</a>
+        </div>
+      </div>
+
+      
+      <div class="card">
+        <img src="slike/popularno5.png" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">THE INTRUDER</h5>
+          <p class="card-text">25 KM</p>
+          <a href="knjiga.html?id=8" class="btn">Kupi</a>
+        </div>
+      </div>
+
+      
+      <div class="card">
+        <img src="slike/knjiga4.png" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">MONA'S EYES</h5>
+          <p class="card-text">25 KM</p>
+          <a href="knjiga.html?id=4" class="btn">Kupi</a>
+        </div>
+      </div>
+    </div>
+
+    <button class="arrow right">&#10095;</button> <!--desna strelica-->
+  </div>
+</div>
+
+<!--javascript za strelice na prethodnom banneru-->
+<script>
+  // dohvatimo element slidera po id-u bookSlider
+  const slider = document.getElementById("bookSlider");
+  
+  // koliko piksela će se pomjeriti slider na klik strelice
+  const scrollAmount = 260;
+
+  // dodajemo funkcionalnost lijevoj strelici
+  document.querySelector(".arrow.left").onclick = () => {
+    // pomjeramo slider ulijevo za scrollAmount piksela
+    slider.scrollLeft -= scrollAmount;
+  };
+
+  // dodajemo funkcionalnost desnoj strelici
+  document.querySelector(".arrow.right").onclick = () => {
+    // pomjeramo slider udesno za scrollAmount piksela
+    slider.scrollLeft += scrollAmount;
+  };
+</script>
+
+
+<!--banner o nama, koji sadrzi naslov i opis-->
+ <div class="o-nama">
+    <div class="o-nama-text">
+      <h3>O nama</h3>
+      <p>
+        Naša knjižara je mjesto za sve ljubitelje knjiga i čitanja.
+        Vjerujemo da svaka knjiga nosi posebnu priču i da je čitanje
+        putovanje koje obogaćuje svakodnevni život.
+      </p>
+      <p>
+        Pažljivo biramo naslove iz različitih oblasti kako bismo
+        našim čitaocima ponudili kvalitet, inspiraciju i uživanje
+        u svakom pročitanom poglavlju.
+      </p>
+    </div>
+    <!--takodjer sadrzi i sliku knjizare--> 
+    <div class="o-nama-image">
+      <img src="slike/about.jpg">
+    </div>
+  </div>
+
+
+  <!--knjiga mjeseca prikazuje naslov, sliku knjige, te opis -->
+   <div class="knjiga-mjeseca">
+    <div class="naslov">      
+    <h3>Knjiga mjeseca</h3>
+    </div>
+
+   <div class="content">
+    <div class="knjiga-mjeseca-image">
+      <img src="slike/POPULARNO4.png">  <!--slika-->
+    </div>
+  
+    <div class="knjiga-mjeseca-text"> <!--opis knjige-->
+      <h3>The Housemaid</h3>
+      <h5>Freida McFadden</h5>
+      <p>
+        Napeta i psihološki snažna priča koja drži pažnju od prve
+        do posljednje stranice. Roman koji istražuje tajne,
+        povjerenje i tamne strane ljudske prirode.
+      </p>
+      <a href="knjiga.html?id=9" class="btn">Saznaj više</a> <!--button za prikaz detalja o knjizi, takodjer sadrzi svoj id
+      pomocu kojeg prikazujemo potreban sadrzaj na knjiga.html-->
+    </div>
+  </div>
+   </div>
+    
+    <div class="banner5">
+      <!--banner5 sadrzi konkatke i input polja -->
+        <div class="kontakt">
+          <p>KONTAKT</p>
+          <h3>Imate neka pitanja za nas?</h3>
+          <h3>Mi ćemo biti sretni da nas kontaktirate!</h3>
+          <p>77000 Bihać</p>
+          <p>knjizara@gmail.com</p>
+          <p>+387 62 701 728</p>
+          <!--linkovi koji vode na drustvene mreze a predstavljeni su sličicama-->
+          <ul id="mreze">
+              <li>
+                <a href="" target="">
+                  <img src="slike/instagram.png" alt="">
+                </a></li>
+              <li>
+                <a href="" target="">
+                   <img src="slike/facebook.png" alt="">
+                </a>
+               </li>
+              <li>
+                <a href="" target="">
+                  <img src="slike/youtube.png" alt="">
+                </a></li>
+          </ul>      
+        </div>
+        <div class="inputi">
+          <form id="kontaktForma">
+            <!--svaki input kao i text area imaju svoj id kako bismo ih mogli obraditi u js-->
+            <p>Ime i prezime:</p>  <!--svaki input prethodno ima naslov, kao i svoj placeholder-->
+            <input type="text" id="ime" placeholder="Ime i prezime">
+
+            <p>Broj telefona:</p>
+            <input type="text" id="telefon" placeholder="Broj telefona">
+
+            <p>Email:</p>
+            <input type="email" id="email" placeholder="Email">
+
+            <p>Poruka:</p>
+            <textarea id="poruka" cols="80" rows="8" placeholder="Poruka"></textarea>
+
+            <br><br>
+            <button class="button" type="submit">Pošalji</button>
+          </form>
+
+          <p id="porukaStatus"></p> <!--prikazuje da li je poruka uspjesno poslana ili nije-->
+      </div>
+<script> //script za prethodne inpute
+  document.getElementById("kontaktForma").addEventListener("submit", function(e) {
+    e.preventDefault();
+    //prvo uzimamo sve uneseno u input polja i textarea
+    var ime = document.getElementById("ime").value;
+    var telefon = document.getElementById("telefon").value;
+    var email = document.getElementById("email").value;
+    var poruka = document.getElementById("poruka").value;
+    var status = document.getElementById("porukaStatus");
+    //poruka ukoliko se ne popune sva polja
+    if (ime === "" || telefon === "" || email === "" || poruka === "") {
+        status.style.color = "red";
+        status.innerHTML = "Molimo popunite sva polja.";
+        return;
+    }
+    //email mora biti pravilno unesen
+    if (!email.includes("@") || !email.includes(".")) {
+        status.style.color = "red"; //poruka postaje crvene boje
+        status.innerHTML = "Email mora sadržavati @ i .";
+        return;
+    }
+    //ukoliko je sve dobro upisano, poruka se mijenja u zelenu boju i ispisuje 
+    status.style.color = "green";
+    status.innerHTML = "Poruka je uspješno poslana!";
+
+    document.getElementById("kontaktForma").reset(); //resetovanje
+});
+</script>
+
+<!--footer-->
+    </div>
+        <div class="footer">
+          <div class="logoo"> <!--logo stranice-->
+            <img src="slike/logo.png" alt="logo">
+          </div>
+          <div class="pronadjite_nas"> <!--linkovi za drustvene mreze-->
+           <ul id="mreze">
+              <li>
+                <a href="" target="">
+                  <img src="slike/instagramB.png" alt="">Instagram
+                </a></li> 
+              <li>
+                <a href="" target="">
+                   <img src="slike/facebookB.png" alt="">Facebook
+                </a>
+               </li>
+              <li>
+                <a href="" target="">
+                  <img src="slike/youtubeB.png" alt="">Youtube
+                </a></li>
+          </ul>      
+          </div>
+
+          <div class="info">  <!--informacije o knjizari, lokacija, mail, telefon-->
+            <ul>
+              <li>
+                  <img src="slike/location.png" alt="">Ul. Irfana Ljubijankića
+                
+              </li>
+              <li>   
+                   <img src="slike/mail.png" alt="">neiradurdyic@gmail.com
+                  
+              </li>
+              <li>
+                  <img src="slike/phone.png" alt="">062 701 728
+                  
+              </li>
+          </ul>      
+          </div>
+
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

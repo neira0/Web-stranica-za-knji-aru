@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <title>Moja Korpa</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ==== Korpa CSS ==== */
+    /*koriste se uglavnom iste naredbe kao u prethodnim primjerima css-a*/
+    .korpa-container {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #F3E8D8;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: #432818;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .korpa-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #FCFBF9;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .korpa-item img {
+      height: 120px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .item-info {
+      flex: 2;
+      margin-left: 20px;
+    }
+
+    .item-info h4 {
+      margin: 0 0 10px 0;
+      color: #2B2118;
+    }
+
+    .item-info p {
+      margin: 5px 0;
+      color: #432818;
+    }
+
+    .item-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .item-actions button {
+      background-color: #432818;
+      color: #FCFBF9;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 25px;
+      font-family: 'Playfair Display', serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 10px;
+    }
+
+    .item-actions button:hover {
+      background-color: #99582A;
+      transform: translateY(-2px);
+    }
+
+    .ukupno {
+      text-align: right;
+      margin-top: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #432818;
+    }
+
+    .btn-nastavi, .btn-potvrda {
+      display: block;
+      margin: 30px auto 0 auto;
+      background-color: #432818;
+      color: #FCFBF9;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-family: 'Playfair Display', serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .btn-potvrda:hover{
+      background-color: #99582A;
+      transform: translateY(-2px);
+    }
+    .btn-nastavi:hover {
+      background-color: #99582A;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="custom-navbar">
+    <a href="index.html"><img src="slike/logo.png" style="height:50px;"></a> <!--navbar kao i prethodno-->
+  </nav>
+
+  <div class="korpa-container">
+    <h2>Moja Korpa</h2>
+    <div id="korpa-lista">
+      <!-- Ovde će JS ubaciti stavke -->
+    </div>
+    <div class="ukupno" id="ukupno-cijena">Ukupno: 0 KM</div>  <!--prikaz cijene ukupne, saberu se sve 
+    cijene izabranih proizvoda-->
+    <a href="index.html" class="btn-nastavi">Nastavi sa kupovinom</a>  <!--button za nastavak i button za krsj kupovine-->
+    <a href="#" id="potvrdiBtn" class="btn-potvrda">Potvrdi narudžbu</a>
+    <p id="porukaNarudzba"></p> <!--ovdje ce se ispisati poruka za uspjesnu narudzbu-->
+
+  </div>
+
+<!--script za button Potvrdi narudzbu-->
+  <script>
+  // dohvatimo dugme "potvrdi" iz html-a prema njegovom id-u
+  const potvrdiBtn = document.getElementById("potvrdiBtn");
+
+  // dohvatimo paragraf gdje ćemo prikazati poruku nakon narudžbe
+  const porukaNarudzba = document.getElementById("porukaNarudzba");
+
+  // dodajemo event listener na dugme, koji reaguje na klik
+  potvrdiBtn.addEventListener("click", function (e) {
+      e.preventDefault(); // sprječava da dugme automatski refresha stranicu ili šalje formu
+
+      // prikazujemo poruku korisniku da je narudžba uspješna
+      porukaNarudzba.innerHTML = "Hvala na narudžbi!";
+
+      // postavljamo stil poruke: veličina fonta
+      porukaNarudzba.style.fontSize = "20px";
+
+      // postavljamo stil poruke: boja teksta
+      porukaNarudzba.style.color = "green";
+
+      // sakrivamo dugme nakon što je kliknuto
+      potvrdiBtn.style.display = "none";
+
+      // po želji, brišemo sve iz localStorage pod ključem "korpa"
+      localStorage.removeItem("korpa");
+});
+</script>
+
+<!--script za prikaz korpe i ukupne cijene -->
+  <script>
+    // učitaj korpu iz localstorage, ako ne postoji koristi praznu listu
+      let cart = JSON.parse(localStorage.getItem("korpa")) || [];
+
+      // dohvatimo element u html-u gdje ćemo prikazivati stavke korpe
+      const lista = document.getElementById("korpa-lista");
+
+      // dohvatimo element gdje ćemo prikazivati ukupnu cijenu
+      const ukupnoCijena = document.getElementById("ukupno-cijena");
+
+      // funkcija koja prikazuje sve stavke iz korpe
+      function prikaziKorpu() {
+        // očistimo prethodni sadržaj liste da ne dupliramo stavke
+        lista.innerHTML = "";
+        
+        // varijabla za ukupnu cijenu
+        let ukupno = 0;
+
+        // prolazimo kroz svaki item u korpi
+        cart.forEach((item, index) => {
+          // iz price stringa (npr. "15 KM") izvlačimo samo broj
+          let cijenaNum = parseInt(item.price.replace(" KM", ""));
+          
+          // dodajemo cijenu te stavke ukupnom iznosu
+          ukupno += cijenaNum;
+
+          // kreiramo novi div koji predstavlja stavku u korpi
+          const div = document.createElement("div");
+          div.className = "korpa-item"; // dodajemo klasu za stilizaciju
+          div.innerHTML = `
+            <img src="${item.image}" alt="${item.title}"> <!-- slika knjige -->
+            <div class="item-info">
+              <h4>${item.title}</h4> <!-- naziv knjige -->
+              <p>Cijena: ${item.price}</p> <!-- cijena knjige -->
+            </div>
+            <div class="item-actions">
+              <button onclick="ukloniStavku(${index})">Ukloni</button> <!-- dugme za uklanjanje -->
+            </div>
+          `;
+          // dodajemo div u listu na stranici
+          lista.appendChild(div);
+        });
+
+        // prikazujemo ukupnu cijenu svih stavki
+        ukupnoCijena.textContent = "Ukupno: " + ukupno + " KM";
+      }
+
+      // funkcija koja uklanja stavku iz korpe po indexu
+      function ukloniStavku(index) {
+        cart.splice(index, 1); // uklanja stavku iz niza cart
+        localStorage.setItem("korpa", JSON.stringify(cart)); // ažuriramo localStorage
+        prikaziKorpu(); // ponovno prikazujemo korpu sa ažuriranim podacima
+      }
+
+      // poziv funkcije da se korpa odmah prikaže kada se stranica učita
+      prikaziKorpu();
+
+  </script>
+
+</body>
+</html>

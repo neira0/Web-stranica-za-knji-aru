@@ -1,0 +1,621 @@
+/* body */
+/* postavlja osnovnu pozadinsku boju stranice na bijelu */
+body {
+    background-color: white;
+}
+
+/* banneri i sekcije */
+/* sve ove sekcije imaju pozadinu bijele boje, da izgledaju čisto i svijetlo */
+.banner2,
+.banner4,
+.o-nama,
+.banner5 {
+    background-color: white;
+}
+
+/* custom navbar */
+/* stilizuje nav */
+.custom-navbar {
+    background-color: #432818  !important; /*  braon pozadina */
+    /*!important koristimo jer je ovaj dio koda iz bootstrapa pa zelimo da sami stilizujemo*/
+    padding: 15px 40px; /* unutrašnji razmak gore-dolje 15px, lijevo-desno 40px */
+}
+
+/* dugme u navbaru (pretraga) */
+.custom-navbar .btn-outline-success {
+    border-radius: 30px; /* zaobljeni rubovi dugmeta */
+    padding: 6px 18px; /* unutrasnji razmak unutar dugmeta */
+}
+
+/* linkovi u navbaru */
+.custom-navbar .nav-link {
+    color: #FCFBF9  !important; /* svijetla boja teksta */
+    font-weight: 500; /* srednje-debljine slova */
+}
+
+/* hover efekat za linkove */
+.custom-navbar .nav-link:hover {
+    color: #F3E8D8   !important; /* svjetlija nijansa kad se prelazi mišem */
+}
+
+/* dropdown meni u navbaru */
+.custom-navbar .dropdown-menu {
+    background-color: #432818 !important; /* ista tamno braon pozadina */
+}
+
+/* pojedina stavka dropdown menija */
+.custom-navbar .dropdown-item {
+    color: #FCFBF9 !important; /* svijetla boja teksta */
+}
+
+/* hover efekat za dropdown stavke */
+.custom-navbar .dropdown-item:hover {
+    background-color: #99582A  !important; /* tamno narandžasta pozadina kad je mišem izabrano */
+}
+
+/* pretraga input u navbaru */
+.custom-navbar .form-control {
+    background-color: #FCFBF9 !important; /* svijetla pozadina za input */
+    border: 1px solid #FCFBF9 !important; /* ista boja okvira kao pozadina */
+    color: #432818 !important; /* tamno braon tekst */
+}
+
+/* dugme za pretragu */
+.custom-navbar .btn-outline-success {
+    border-color: #FCFBF9 !important; /* bijeli rub dugmeta */
+    color: #FCFBF9 !important; /* bijeli tekst dugmeta */
+}
+
+/* hover efekat dugmeta za pretragu */
+.custom-navbar .btn-outline-success:hover {
+    background-color: #99582A !important; /* tamno narandžasta pozadina kad je hover */
+    color: #FCFBF9 !important; /* bijeli tekst i dalje */
+}
+
+/* -----BANER 1-----*/
+.banner1 {
+    width: 100%;  /*visina i sirina diva*/
+    height: 80vh;
+    overflow: hidden;  /* sakriva sve sto izlazi iz granica diva */
+    text-align: center;  /*centriranje texta*/
+    background-image: linear-gradient(  /* postavlja poluprovidni crni sloj*/
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.55)
+        ),url(slike/biblioteka2.jpg);  /*slika kao pozadina*/
+    justify-content: center; /*centriranje*/
+    background-attachment: fixed; /*fiksira pozadinsku sliku dok se skrola*/
+    align-items: center; /* centriranje sadržaja vertikalno u flex kontejneru */
+    display: flex; /* koristi flexbox za raspored elemenata */
+    flex-direction: column; /* elementi u flex kontejneru se poređaju vertikalno */
+}
+
+
+/* stil za h3 u baneru */
+.banner1 h3{
+    font-family: 'Dancing Script', cursive; /* koristi pisani, elegantni font */
+    font-size: 35px; /* velicina fonta */
+    color: #FCFBF9; /* svijetla boja teksta */
+    letter-spacing: 2px; /* razmak izmedju slova radi boljeg izgleda */
+}
+
+/* stil za paragraf u baneru */
+.banner1 p{
+    font-family: 'Playfair Display', serif; /* serifni font, elegantan za tekst */
+    font-size: 22px; /* velicina fonta */
+    color: #FCFBF9; /* svijetla boja teksta */
+}
+
+/*---------CARDS--------*/
+.banner2{
+    width: 100%; /*duzina, sirina, centriranje*/
+    justify-content: center;
+    margin: 0px auto;
+    height: auto;
+    overflow: hidden;
+}
+
+/*naslov za banner*/
+.banner2 .naslov{
+   display: flex; /*flex jer ce sdrzavati liniju (hr) s lijede i desne strane naslova*/
+    margin: 60px 0 40px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+}
+.banner2 .naslov h3{
+    font-size: 23px;
+    letter-spacing: 3px; /*razmak izmedju slova*/
+    margin-bottom: 10px; /*donja margina*/
+    color: #432818;
+    font-family: 'Playfair Display', serif; /*font*/
+}
+
+.banner2 .naslov hr {
+    flex: 1; /*zauzima preostali dio*/
+    height: 2px; /*linija s obje strane texta*/
+    border: none;  /*nema okvira*/
+    background-color: #99582A;
+    max-width: 150px; /* dužina linija */
+    margin: 0 15px; 
+}
+
+/*kartice*/
+.banner2 .cards{
+    display: flex;
+    gap: 20px; /*razmak izmedju kartica*/
+    justify-content: center;
+}
+
+/*pojedinacna kartica*/
+.banner2 .cards .card{
+    width: 18%;
+    margin: 10px;
+  /*velicina, margine, padding*/
+    padding: 10px;
+     display: flex;
+    flex-direction: column;
+    background-color: #F3E8D8;
+    border: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08); /*shadow na svaku karticu*/
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.banner2 .cards .card:hover {
+    transform: translateY(-8px); /*pri prelasku misem, kartice se pomjere kao i shadow*/
+    box-shadow: 0 18px 35px rgba(0,0,0,0.15);
+}
+
+.banner2 .card-body {
+    display: flex; /*unutar kartice, raspored*/
+    flex-direction: column;
+    flex-grow: 1; /*određuje koliko dodatnog 
+    prostora element može zauzeti u odnosu na druge flex elemente u istom redu ili koloni*/
+}
+/*slika unutar kartice*/
+.banner2 .cards .card img {
+    height: 260px;          /* ista visina za sve */
+    object-fit: contain;    /* cijela knjiga vidljiva */
+}
+/*naslov unutar kartice*/
+.banner2 .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    min-height: 48px;   /* 2 reda */
+    margin-bottom: 10px;
+    color: #2B2118;
+}
+/*text unutar kartice*/
+.banner2 .card-text {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #432818; /*boja*/
+}
+
+/*button u kartici*/
+.btn{
+    font-family: 'Playfair Display', serif;
+    margin-top: auto;              /* zakuca button dole */
+    align-self: flex-start;        /* lijevo poravnanje */
+    background-color: #432818;
+    color: #FCFBF9;
+    border-radius: 25px;
+    padding: 8px 22px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;  /*tranzicija*/
+    
+}
+
+.btn:hover {
+    background-color: #99582A;
+    color: #FCFBF9;
+    transform: translateY(-2px);  /*prelaskom misa, button se pomjeri i mijenja boju*/
+}
+
+/*banner3 koji sadrži citat*/
+.banner3 {
+    width: 100%;
+    height: 30vh;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    background-color: #432818; 
+}
+
+.banner3 p {
+    font-family: 'Dancing Script', cursive; /*cursive font*/
+    font-size: 2.2rem;
+    max-width: 70%;
+    text-align: center;
+    line-height: 1.4;
+    color: #FCFBF9;
+    font-style: italic;
+}
+
+/* ===== BANNER 4 ===== */
+
+.banner4 {
+    width: 100%; /* zauzima cijelu širinu ekrana */
+    height: 80vh; /* visina banera je 80% visine viewport-a */
+}
+
+.banner4 .naslov {
+  display: flex; /* koristi flexbox za raspored naslova i linija */
+  align-items: center; /* vertikalno centriranje elemenata u redu */
+  justify-content: center; /* horizontalno centriranje elemenata */
+  margin-bottom: 30px; /* razmak ispod naslova */
+  margin-top: 20px; /* razmak iznad naslova */
+}
+
+.banner4 .naslov h3 {
+  font-size: 23px; /* velicina naslova */
+  letter-spacing: 3px; /* razmak izmedju slova */
+  color: #432818; /* boja naslova */
+  margin: 0 15px; /* razmak lijevo i desno od naslova */
+  font-family: 'Playfair Display', serif; /*   font */
+}
+
+.banner4 .naslov hr {
+  flex: 1; /* hr linija raste da popuni prostor uz h3 */
+  max-width: 150px; /* maksimalna širina linije */
+  height: 2px; /* debljina linije */
+  border: none; /* uklanja default border */
+  background-color: #99582A; /* boja linije */
+}
+
+/* Slider wrapper */
+.slider-wrapper {
+   position: relative; /* omogucava apsolutno pozicioniranje strelica unutar wrapper-a */
+  width: 100%; /* zauzima punu širinu roditelja */
+}
+
+/* Slider */
+.book-slider {
+  display: flex; /* koristi flexbox za horizontalni raspored kartica */
+  gap: 20px; /* razmak izmedju kartica */
+  overflow-x: auto; /* omogucava horizontalno skrolanje */
+  scroll-behavior: smooth; /* skrolanje glatko */
+  padding: 20px 80px; /* unutrašnji razmak, gore-dole i sa strane */
+}
+
+/* Bootstrap card u slideru */
+.book-slider .card {
+ min-width: 220px; /* minimalna širina kartice */
+  flex: 0 0 auto; /* kartica ne raste ni ne skuplja, zadrzava svoju sirinu */
+  background-color: #F3E8D8; /* boja kartice */
+  border: none; /* uklanja default border */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08); /* lagani shadow za dubinu */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* glatka animacija na hover eventualno */
+}
+
+.book-slider .card .card-title{
+    color: #2B2118;
+}
+
+.book-slider .card .card-text{
+    color: #432818;
+}
+
+/* Slika knjige */
+.book-slider .card-img-top {
+  height: 250px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+/* Strelice */
+.arrow {
+   position: absolute; /* pozicionirane unutar slider-wrapper-a */
+  top: 50%; /* vertikalno centriranje */
+  transform: translateY(-50%); /* precizno centriranje */
+  background: #432818; /* boja strelice */
+  color: #F5E3C2; /* boja simbola */
+  border: none; /* bez default border-a */
+  font-size: 28px; /* velicina simbola */
+  padding: 10px 16px; /* unutrasnji razmak */
+  border-radius: 50%; /* okrugli oblik */
+  cursor: pointer; /* mijenja kursor na pointer */
+  z-index: 10; /* da bude iznad kartica */
+}
+
+/*udaljenost od lijeve i desne ivice*/
+.arrow.left {
+  left: 15px;
+}
+
+.arrow.right {
+  right: 15px;
+}
+
+.arrow:hover {
+  background-color: #99582A;
+    color: #FCFBF9;
+}
+
+.card-title{
+    font-family: 'Playfair Display', serif;
+}
+
+
+/* ===== O NAMA ===== */
+.o-nama{    
+    width: 80%;
+    margin: 40px auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+/* Tekst */
+.o-nama-text{
+    flex: 1; 
+}
+
+.o-nama-text h3{
+    font-family: 'Lobster', cursive; /*font*/
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: #432818;
+    margin-bottom: 25px;
+}
+
+.o-nama-text p{
+    font-size: 17px;
+    line-height: 1.8;  /*određuje razmak između osnovne linije teksta i sljedeće linije*/
+    color: #432818;
+    margin-bottom: 15px;
+}
+
+/* Slika */
+.o-nama-image{
+    flex: 1;
+}
+
+.o-nama img{
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /*shadow oko slike*/
+}
+
+
+/* ===== KNJIGA MJESECA ===== */
+.knjiga-mjeseca{
+    width: 100%;
+    margin-top: 50px;
+    align-items: center;
+    padding-bottom: 80px;
+    background-color: #F3E8D8;
+}
+
+.knjiga-mjeseca .content{
+    display: flex; /* koristi flexbox za raspored slike i teksta u jednom redu */
+    align-items: center; /* vertikalno centriranje elemenata */
+    gap: 60px; /* razmak između slike i teksta */
+    max-width: 1100px; /* maksimalna širina sadržaja */
+    margin: 0 auto; /* centriranje horizonalno na stranici */
+    padding: 40px; /* unutrašnji razmak unutar box-a */
+    background-color: #FCFBF9; /* svijetla boja pozadine */
+    border-radius: 25px; /* zaobljeni uglovi box-a */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15); /* lagani shadow za dubinu */
+}
+
+.knjiga-mjeseca .naslov{
+    display: flex; /* flexbox za naslov i eventualne linije */
+    padding: 40px; /* unutrašnji razmak oko naslova */
+    margin-top: 80px; /* razmak iznad naslova */
+    text-align: center; /* centriranje teksta */
+    align-items: center; /* vertikalno centriranje unutar flex-a */
+    justify-content: center; /* horizontalno centriranje */
+}
+
+.knjiga-mjeseca .naslov h3{
+    font-size: 25px; /* veličina fonta naslova */
+    letter-spacing: 3px; /* razmak između slova */
+    margin-bottom: 10px; /* razmak ispod naslova */
+    color: #432818; /* boja naslova */
+    font-family: 'Playfair Display', serif; /*  font */
+}
+
+/* Slika */
+.knjiga-mjeseca-image{
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.knjiga-mjeseca-image img{
+    width: 100%;
+    max-width: 320px;
+     margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+
+/* Tekst */
+.knjiga-mjeseca-text{
+    flex: 2;
+}
+
+.knjiga-mjeseca-text h3{
+    font-family: 'Playfair Display', serif; /*font*/
+    font-size: 30px;
+    letter-spacing: 2px; /*razmak izmedju slova*/
+    color: #432818;
+    margin-bottom: 10px;
+}
+
+.knjiga-mjeseca-text h5{
+    font-size: 16px;
+    font-weight: 500;
+    color: #6F1D1B;
+    margin-bottom: 20px;
+}
+
+.knjiga-mjeseca-text p{
+    font-size: 17px;
+    line-height: 1.8;
+    color: #432818;
+    margin-bottom: 25px;
+}
+
+/*banner5 sa inputima i kontaktom*/
+.banner5{
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+}
+
+.banner5 .kontakt{
+    width: 40%;
+    padding-top: 100px;
+}
+
+.banner5 .inputi{
+    width: 60%;
+}
+
+.banner5 .kontakt p{
+    color: #432818;
+    font-family: comfortaa, sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: left;
+}
+
+.banner5 .kontakt h3{
+    color: black;
+    font-weight: bold;
+    font-family: comfortaa, sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: left;
+}
+
+.banner5 .kontakt ul{
+    display: flex;
+    justify-content: left;
+    padding: 0;
+    list-style-type: none; /*bez oznaka stavki liste*/
+}
+
+.banner5 .kontakt ul li{
+  margin: 0 10px;
+}
+
+/*gadja link unutar ovih klasa*/
+.banner5 .kontakt ul li img{
+    width: 30px;
+    height: auto;
+    object-fit: cover;
+}
+
+/*drugi dio roditeljskog diva*/
+.banner5 .inputi{
+    width: 60%;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: comfortaa,sans-serif;
+    font-size: 14px;
+}
+
+.banner5 .inputi p{
+    margin: 0 0;
+    font-size: 14px;
+}
+
+.banner5 .inputi input, .banner4 .inputi textarea{
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+.banner5 .inputi .button{
+    display: inline-block;
+    font-family: 'Comfortaa',sans-serif;
+    text-decoration: none;
+     background-color: #432818;
+    color: #FCFBF9;
+    padding: 8px 15px;
+    border-radius: 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease all;
+    border: none;
+}
+
+.banner5 .inputi .button:hover{
+    background-color: #99582A;
+    color: #FCFBF9;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/*footer*/
+.footer {
+    width: 100%;
+    min-height: 250px; /* Malo veća visina za bolji izgled */
+    background-color: #432818;
+    display: flex;
+    justify-content: space-around; /* Ravnomjeran razmak između kolona */
+    align-items: flex-start; /* Poravnanje na vrh */
+    padding: 40px 0;
+    color: white; /* Da se tekst vidi na tamnoj pozadini */
+    font-family: sans-serif;
+}
+
+/* Naslovi u footeru */
+.footer h4 {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.pronadjite_nas, .info{
+    margin-top: 60px;
+}
+.footer .logoo, .footer .info, .footer .pronadjite_nas, .footer .lokacija {
+    width: 22%; /* Smanjeno da stane 4 kolone */
+}
+
+/* Stilovi za liste */
+.footer ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.footer ul li {
+    display: flex;
+    align-items: center; /* Centriranje ikone i teksta vertikalno */
+    margin-bottom: 15px;
+}
+
+.footer ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+/* Stilovi za ikone */
+.footer img {
+    width: 24px; /* Veličina ikona */
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Posebno za logo */
+.footer .logoo img {
+    width: 70%;
+    margin-top: 20px;
+}
+
